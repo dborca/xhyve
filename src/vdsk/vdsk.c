@@ -36,11 +36,16 @@
 #include <xhyve/vdsk/vdsk.h>
 #include <xhyve/vdsk/vdsk-int.h>
 #include <xhyve/vdsk/vdsk-raw.h>
+#include <xhyve/vdsk/vdsk-split.h>
 
 struct vdsk *
 vdsk_open(const char *optstr, int numthr)
 {
-    /* for now, the one and only backend */
+    struct vdsk *vdsk;
+    vdsk = vdsk_split_open(optstr, numthr);
+    if (vdsk) {
+	return vdsk;
+    }
     return vdsk_raw_open(optstr, numthr);
 }
 

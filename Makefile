@@ -69,6 +69,7 @@ FIRMWARE_SRC := \
 
 VDSK_SRC := \
 	src/vdsk/vdsk-raw.c \
+	src/vdsk/vdsk-split.c \
 	src/vdsk/vdsk.c
 
 SRC := \
